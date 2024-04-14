@@ -1,0 +1,26 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      run: hello-dotnet
+    name: hello-dotnet
+    resourceVersion: "8424"
+  spec:
+    externalTrafficPolicy: Cluster
+    ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      run: hello-dotnet
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer:
+      ingress:
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
